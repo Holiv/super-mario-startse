@@ -1,0 +1,177 @@
+*{
+    box-sizing: border-box;
+}
+.game{
+    width: 100%;
+    height: 100vh;
+    border-bottom: 100px solid rgb(24, 174, 24);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+.pipe-game{
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear;
+}
+
+.pipe-game-2{
+    position: absolute;
+    bottom: 0;
+    right: -115px;
+    width: 115px;
+    animation: pipe-animation-2 7.5s infinite linear;
+    animation-delay: 5.25s;
+}
+
+.mario{
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.bullet{
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    animation: bullet-animation-1 10s infinite linear;
+    animation-delay: 5s;
+    
+}
+
+.bullet-2{
+    width: 50px;
+    position: absolute;
+    top: 60%;
+    right: -50px;
+    animation: bullet-animation-1 14s infinite linear;
+    animation-delay: 7s;
+}
+
+.enemy{
+    position: absolute;
+    bottom: -1px;
+    width: 40px;
+    right: -40px;
+    animation: enemy-animation 7.5s infinite linear;
+    animation-delay: 8.25s;
+}
+.bird{
+    width: 100px;
+    position: absolute;
+    top: 50px;
+    left: -100px;
+    animation: flappy-bird 15s infinite linear;
+    animation-delay: 5s;
+}
+.cloud-game{
+    position: absolute;
+    top: 10px;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;
+}
+
+.jump-mario{
+    animation: mario-animation 500ms ease-out;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+@keyframes pipe-animation-2 {
+    0%{
+        right: -115px;
+    }
+    20% {
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+@keyframes clouds-animation {
+    from{
+        right: -550px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes bullet-animation-1 {
+    0%{
+        right: -50px;
+    }
+    20%{
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+
+@keyframes bullet-animation-2 {
+    0%{
+        right: -50px;
+    }
+    20%{
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+
+@keyframes flappy-bird {
+    0% {
+        left: -100px;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes enemy-animation {
+    0% {
+        right: -40px;
+    }
+    20%{
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+
+@keyframes mario-animation{
+    0% {
+        bottom: 0;
+    }
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    60% {
+        bottom: 180px;
+    }
+    70% {
+        bottom: 180px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
