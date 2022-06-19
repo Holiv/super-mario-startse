@@ -1,6 +1,11 @@
 # Super Mário - JavaScript Game
 
 Réplica do Jogo Super Mário utilizando HTML, CSS e JavaScript.
+<div align="center">
+<h2>
+<a href="https://holiv.github.io/super-mario-startse/">Play</a>
+</h2>
+</div>
 
 1. primeiro commit: implementação da estrutura do jogo e animações dos elementos.
 
