@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 *{
     box-sizing: border-box;
 }
+html{
+    font-family: 'Press Start 2P', cursive;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
 .game{
+    max-width: 1200px;
     width: 100%;
     height: 100vh;
     border-bottom: 100px solid rgb(24, 174, 24);
@@ -9,6 +19,104 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+.restart-game{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-over{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    z-index: 5;
+    display: none;
+    text-shadow: 2px 2px 5px black;   
+}
+.game-over h3{
+    margin: 0;
+    font-size: 3rem;
+    width: 100%;
+}
+
+.restart{
+    width: 150px;
+    text-align: center;
+    border-radius: 7px;
+    border: 5px solid white;
+    background-color: #FF0004;
+    box-shadow: 5px 5px black;
+    margin-top: 20px;
+    display: none;
+}
+.restart a{
+    display: inline-block;
+    width: 100%;
+}
+.restart h3{
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-size: 0.8rem;
+}
+.restart:hover{
+    transform: translate(10px, 10px);
+    box-shadow: none;
+}
+
+.logo{
+    margin-top: 25vh;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.logo-mario {
+    width: 60%;
+    min-width: 300px;
+}
+
+.logo-mario img{
+    width: 100%;
+}
+
+.play-buttom{
+    width: 150px;
+    text-align: center;
+    border-radius: 7px;
+    border: 5px solid white;
+    background-color: #FF0004;
+    box-shadow: 5px 5px black;
+}
+
+.play-buttom a{
+    display: inline-block;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px;  
+}
+
+.play-buttom h3{
+    margin: 0;
+}
+
+.play-buttom:hover{
+    transform: translate(10px, 10px);
+    box-shadow: none;
+}
+
+.pipe-logo img{
+    width: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 100px;
 }
 
 .pipe-game{
@@ -33,20 +141,20 @@
     bottom: 0;
     left: 0;
 }
+
 .bullet{
     width: 50px;
     position: absolute;
-    top: 50%;
+    top: 45%;
     right: -50px;
     animation: bullet-animation-1 10s infinite linear;
-    animation-delay: 5s;
-    
+    animation-delay: 5s;  
 }
 
 .bullet-2{
     width: 50px;
     position: absolute;
-    top: 60%;
+    top: 55%;
     right: -50px;
     animation: bullet-animation-1 14s infinite linear;
     animation-delay: 7s;
@@ -78,6 +186,18 @@
 .jump-mario{
     animation: mario-animation 500ms ease-out;
 }
+
+.score{
+    position: absolute;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px black;
+    color: white;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+}
+
+/*animações*/
 
 @keyframes pipe-animation {
     from {
@@ -159,19 +279,47 @@
     0% {
         bottom: 0;
     }
-    40% {
-        bottom: 180px;
+    20%{
+        bottom: 140px;
     }
-    50% {
-        bottom: 180px;
+    40% {
+        bottom: 200px;
     }
     60% {
-        bottom: 180px;
+        bottom: 200px;
     }
-    70% {
-        bottom: 180px;
+    80% {
+        bottom: 200px;
     }
     100% {
         bottom: 0;
+    }
+}
+
+@media (max-width: 480px){
+
+    .pipe-game{
+        animation: pipe-animation 1s infinite linear;
+    }
+    .bullet{
+        animation: bullet-animation-1 6.6666s infinite linear;
+        animation-delay: 3.3333s;  
+    }
+    .bullet-2{
+        animation: bullet-animation-1 9.3333s infinite linear;
+        animation-delay: 4.6666s;
+    }
+    .bird{
+        animation: flappy-bird 10s infinite linear;
+        animation-delay: 3.3333s;
+    }
+    .cloud-game{
+        animation: clouds-animation 13.3333s infinite linear;
+    }
+    .pipe-game-2{
+        display: none;
+    }
+    .enemy{
+        display: none;
     }
 }
