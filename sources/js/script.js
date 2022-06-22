@@ -14,8 +14,21 @@ const marioTheme = document.getElementById("mario-theme");
 const gameOver = document.querySelector(".game-over");
 const restart = document.querySelector(".restart");
 
+//score element
 const scoreElement = document.querySelector(".score-number");
+let score = 0;
 
+//configuração do contador
+let cont = 0;
+let fixedCont = 0;
+const contador = setInterval(() => {
+    cont += 0.05;
+    Math.round(cont);
+    fixedCont = cont.toFixed(2);
+    console.log(fixedCont);
+}, 50);
+
+//jump function
 const jump = () => {
     mario.classList.add("jump-mario");
     setTimeout(() => {
@@ -24,8 +37,27 @@ const jump = () => {
     smallJump.play();
 };
 
-let score = 0;
+//configuração do game level
+const gameLevel = setInterval(() => {
+    console.log(score);
+    
+    if (fixedCont == 19.5) {
 
+        pipe.style.animation = "pipe-animation-score 1.2s infinite linear";
+    }
+
+    if (fixedCont == 20.1) {
+
+        bigPipe.style.animation = "pipe-animation-2-score 6s infinite linear";
+    }
+
+    if (fixedCont == 22.5) {
+        enemy.style.animation = "enemy-animation-score 6s infinite linear"
+    }
+
+}, 10);
+
+//configurações gerais do jogo
 const loopGame = setInterval(() => {
 
     const pipePosition = pipe.offsetLeft;
@@ -37,7 +69,6 @@ const loopGame = setInterval(() => {
     const enemyPosition = enemy.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "");
 
-    //console.log(marioPosition);
     //condicional para parar as animações - game over
 
     //bloco game over small pipe
@@ -81,12 +112,6 @@ const loopGame = setInterval(() => {
 
         clearInterval(loopGame)
     }
-    /*else if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 80) {
-        if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 190 && marioPosition < 195) {
-            score += 5;
-            scoreElement.innerHTML = score;
-        }
-    }*/
 
     //bloco game over big pipe
     else if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition < 80) {
@@ -131,12 +156,6 @@ const loopGame = setInterval(() => {
 
         clearInterval(loopGame)
     }
-    /*else if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition > 80) {
-        if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition > 190 && marioPosition < 195) {
-            score += 10;
-            scoreElement.innerHTML = score;
-        }
-    }*/
 
     //bloco game-over inimigo
     else if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition < 80) {
@@ -181,42 +200,35 @@ const loopGame = setInterval(() => {
 
         clearInterval(loopGame)
     }
-    /*else if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition > 80) {
-        if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition >= 190 && marioPosition < 195) {
-            score += 1;
-            scoreElement.innerHTML = score;
-        }
-    }*/
-
 }, 10);
 
+//chamando função jump para desktop e celular
 document.addEventListener("keydown", jump);
 window.addEventListener("touchstart", jump);
-//audios
 
+//função score
 const marioScore = () => {
-    
+
     const pipePosition = pipe.offsetLeft;
     const bigPipePosition = bigPipe.offsetLeft;
     const enemyPosition = enemy.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "");
-    console.log(bigPipePosition);
-    
+
+    //console.log(bigPipePosition);
+
     if (pipePosition > 159 && pipePosition < 300) {
         score += 5;
         scoreElement.innerHTML = score;
     }
-    else if (bigPipePosition > 159 && bigPipePosition < 300 ) {
+    else if (bigPipePosition > 159 && bigPipePosition < 300) {
         score += 10;
         scoreElement.innerHTML = score;
     }
-    else if (enemyPosition > 159 && enemyPosition < 300 ){
+    else if (enemyPosition > 130 && enemyPosition < 300) {
         score += 1;
         scoreElement.innerHTML = score;
     }
-    else{
+    else {
         score += 0;
     }
 }
-
 document.addEventListener("keydown", marioScore);

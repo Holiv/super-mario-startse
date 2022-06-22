@@ -207,7 +207,26 @@ a{
         right: 100%;
     }
 }
+@keyframes pipe-animation-score{
+    from{
+        right: -80px;
+    }
+    to{
+        right: 100%;
+    }
+}
 @keyframes pipe-animation-2 {
+    0%{
+        right: -115px;
+    }
+    20% {
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+@keyframes pipe-animation-2-score {
     0%{
         right: -115px;
     }
@@ -274,7 +293,17 @@ a{
         right: 100%;
     }
 }
-
+@keyframes enemy-animation-score {
+    0% {
+        right: -40px;
+    }
+    20%{
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
 @keyframes mario-animation{
     0% {
         bottom: 0;
