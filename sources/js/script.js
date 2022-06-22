@@ -6,6 +6,9 @@ const bulletTwo = document.querySelector(".bullet-2");
 const bird = document.querySelector(".bird");
 const clouds = document.querySelector(".cloud-game");
 const enemy = document.querySelector(".enemy");
+const smallJump = document.getElementById("mario-jump-small")
+const marioTheme = document.querySelector("#mario-theme");
+marioTheme.play();
 
 //game-over element
 const gameOver = document.querySelector(".game-over");
@@ -18,6 +21,7 @@ const jump = () => {
     setTimeout(() => {
         mario.classList.remove("jump-mario");
     }, 500)
+    smallJump.play();
 };
 
 let score = 0;
@@ -185,3 +189,4 @@ const loopGame = setInterval(() => {
 
 document.addEventListener("keydown", jump);
 
+//audios
