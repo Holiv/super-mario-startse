@@ -6,8 +6,8 @@ const bulletTwo = document.querySelector(".bullet-2");
 const bird = document.querySelector(".bird");
 const clouds = document.querySelector(".cloud-game");
 const enemy = document.querySelector(".enemy");
-const smallJump = document.getElementById("mario-jump-small")
-const marioTheme = document.querySelector("#mario-theme");
+const smallJump = document.getElementById("mario-jump-small");
+const marioTheme = document.getElementById("mario-theme");
 
 
 //game-over element
@@ -37,7 +37,7 @@ const loopGame = setInterval(() => {
     const enemyPosition = enemy.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "");
 
-    console.log(marioPosition);
+    //console.log(marioPosition);
     //condicional para parar as animações - game over
 
     //bloco game over small pipe
@@ -72,6 +72,7 @@ const loopGame = setInterval(() => {
         mario.src = "sources/img/mario-game-over.png";
         mario.style.width = "75px";
         mario.style.marginLeft = "45px"
+        marioTheme.src = "sources/audio/smb_gameover.mp3";
 
         //display elements
         gameOver.style.display = "block";
@@ -80,12 +81,12 @@ const loopGame = setInterval(() => {
 
         clearInterval(loopGame)
     }
-    else if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 80 ){
+    /*else if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 80) {
         if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 190 && marioPosition < 195) {
             score += 5;
             scoreElement.innerHTML = score;
         }
-    }
+    }*/
 
     //bloco game over big pipe
     else if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition < 80) {
@@ -119,6 +120,7 @@ const loopGame = setInterval(() => {
         mario.src = "sources/img/mario-game-over.png";
         mario.style.width = "75px";
         mario.style.marginLeft = "45px"
+        marioTheme.src = "sources/audio/smb_gameover.mp3";
 
         //display elements
         gameOver.style.display = "block";
@@ -126,15 +128,15 @@ const loopGame = setInterval(() => {
 
         score += 10;
         scoreElement.innerHTML = score;
-        
+
         clearInterval(loopGame)
     }
-    else if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition > 80 ){
+    /*else if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition > 80) {
         if (bigPipePosition <= 120 && bigPipePosition > 0 && marioPosition > 190 && marioPosition < 195) {
             score += 10;
             scoreElement.innerHTML = score;
         }
-    }
+    }*/
 
     //bloco game-over inimigo
     else if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition < 80) {
@@ -168,6 +170,7 @@ const loopGame = setInterval(() => {
         mario.src = "sources/img/mario-game-over.png";
         mario.style.width = "75px";
         mario.style.marginLeft = "45px"
+        marioTheme.src = "sources/audio/smb_gameover.mp3";
 
         //display elements
         gameOver.style.display = "block";
@@ -175,18 +178,45 @@ const loopGame = setInterval(() => {
 
         score += 1;
         scoreElement.innerHTML = score;
-        
+
         clearInterval(loopGame)
     }
-    else if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition > 80 ){
+    /*else if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition > 80) {
         if (enemyPosition <= 120 && enemyPosition > 0 && marioPosition >= 190 && marioPosition < 195) {
             score += 1;
             scoreElement.innerHTML = score;
         }
-    }
+    }*/
 
-}, 15);
+}, 10);
 
 document.addEventListener("keydown", jump);
-
+window.addEventListener("touchstart", jump);
 //audios
+
+const marioScore = () => {
+    
+    const pipePosition = pipe.offsetLeft;
+    const bigPipePosition = bigPipe.offsetLeft;
+    const enemyPosition = enemy.offsetLeft;
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "");
+    console.log(bigPipePosition);
+    
+    if (pipePosition > 159 && pipePosition < 300) {
+        score += 5;
+        scoreElement.innerHTML = score;
+    }
+    else if (bigPipePosition > 159 && bigPipePosition < 300 ) {
+        score += 10;
+        scoreElement.innerHTML = score;
+    }
+    else if (enemyPosition > 159 && enemyPosition < 300 ){
+        score += 1;
+        scoreElement.innerHTML = score;
+    }
+    else{
+        score += 0;
+    }
+}
+
+document.addEventListener("keydown", marioScore);

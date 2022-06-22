@@ -300,6 +300,8 @@ a{
 
     .pipe-game{
         animation: pipe-animation 1s infinite linear;
+        animation-delay: 1s;
+        right: -80px;
     }
     .bullet{
         animation: bullet-animation-1 6.6666s infinite linear;
