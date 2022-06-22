@@ -40,18 +40,18 @@ const jump = () => {
 //configuração do game level
 const gameLevel = setInterval(() => {
     console.log(score);
-    
-    if (fixedCont == 19.5) {
+    const pipePosition = pipe.offsetLeft;
+    if (fixedCont == 19.35) {
 
         pipe.style.animation = "pipe-animation-score 1.2s infinite linear";
+        //pipe.style.left = `${pipePosition}px` ;
     }
 
-    if (fixedCont == 20.1) {
+    if (fixedCont == 19.95) {
 
         bigPipe.style.animation = "pipe-animation-2-score 6s infinite linear";
     }
-
-    if (fixedCont == 22.5) {
+    if (fixedCont == 22.35) {
         enemy.style.animation = "enemy-animation-score 6s infinite linear"
     }
 
