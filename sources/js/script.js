@@ -8,7 +8,7 @@ const clouds = document.querySelector(".cloud-game");
 const enemy = document.querySelector(".enemy");
 const smallJump = document.getElementById("mario-jump-small")
 const marioTheme = document.querySelector("#mario-theme");
-marioTheme.play();
+
 
 //game-over element
 const gameOver = document.querySelector(".game-over");
