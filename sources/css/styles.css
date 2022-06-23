@@ -16,6 +16,7 @@ a{
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
 .game{
     width: 100%;
@@ -31,16 +32,45 @@ a{
     height: 10vh;
     background-color: #94CC20;
 }
-.ground::after{
+
+.grass-2{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 20vh;
+    background-image: url("../img/grass-2.png");
+    background-size: contain;
+    z-index: 15;
+    animation: grass-2-animation 3s infinite linear;
+}
+.grass-3{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 20vh;
+    background-image: url("../img/grass-2.png");
+    background-size: contain;
+    z-index: 15;
+    animation: grass-2-animation 3s infinite linear;
+    animation-delay: 1.5s;
+}
+
+.static-ground{
+    width: 100%;
+    height: 10vh;
+    background-color: #94CC20;
+}
+.static-ground::after{
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 20vh;
-    background-image: url("/sources/img/grass-2.png");
+    background-image: url("../img/grass-2.png");
     background-size: contain;
     z-index: 15;
 }
+
 .restart-game{
     position: absolute;
     width: 100%;
@@ -145,6 +175,7 @@ a{
     bottom: 0;
     width: 80px;
     animation: pipe-animation 1.5s infinite linear;
+    z-index: 5;
 }
 
 .pipe-game-2{
@@ -154,6 +185,7 @@ a{
     width: 115px;
     animation: pipe-animation-2 7.5s infinite linear;
     animation-delay: 5.25s;
+    z-index: 5;
 }
 
 .mario{
@@ -161,24 +193,28 @@ a{
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 4;
 }
 
 .bullet{
     width: 50px;
     position: absolute;
-    top: 45%;
+    top: 35%;
     right: -50px;
     animation: bullet-animation-1 10s infinite linear;
-    animation-delay: 5s;  
+    animation-delay: 5s;
+    z-index: 3;  
 }
 
 .bullet-2{
-    width: 50px;
+    width: 20px;
     position: absolute;
-    top: 55%;
+    top: 90%;
     right: -50px;
-    animation: bullet-animation-1 14s infinite linear;
+    animation: bullet-animation-1 16s infinite linear;
     animation-delay: 7s;
+    z-index: 3;
+    opacity: 0.6;
 }
 
 .enemy{
@@ -188,6 +224,7 @@ a{
     right: -40px;
     animation: enemy-animation 7.5s infinite linear;
     animation-delay: 8.25s;
+    z-index: 5;
 }
 .bird{
     width: 100px;
@@ -196,13 +233,15 @@ a{
     left: -100px;
     animation: flappy-bird 15s infinite linear;
     animation-delay: 5s;
+    z-index: 1;
 }
 .cloud-game{
     position: absolute;
     top: 10px;
-    width: 550px;
+    width: 450px;
     filter: drop-shadow(5px 5px 10px #000);
     animation: clouds-animation 20s infinite linear;
+    z-index: 2;
 }
 
 .jump-mario{
@@ -220,7 +259,22 @@ a{
 }
 
 /*animações*/
-
+@keyframes grass-animation {
+    0%{
+        right: 0;
+    }
+    100%{
+        right: 100%;
+    }
+}
+@keyframes grass-2-animation {
+    from{
+        right: -100%;
+    }
+    to{
+        right: 100%;
+    }
+}
 @keyframes pipe-animation {
     from {
         right: -80px;

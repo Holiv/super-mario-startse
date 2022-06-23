@@ -6,6 +6,8 @@ const bulletTwo = document.querySelector(".bullet-2");
 const bird = document.querySelector(".bird");
 const clouds = document.querySelector(".cloud-game");
 const enemy = document.querySelector(".enemy");
+const firstGrass = document.querySelector(".grass-2");
+const secondGrass = document.querySelector(".grass-3");
 const smallJump = document.getElementById("mario-jump-small");
 const marioTheme = document.getElementById("mario-theme");
 
@@ -99,6 +101,8 @@ const loopGame = setInterval(() => {
         enemy.style.animation = "none";
         enemy.style.left = `${enemyPosition}px`;
 
+        firstGrass.style.animation = "none";
+        secondGrass.style.animation = "none";
         //substituição do mario
         mario.src = "sources/img/mario-game-over.png";
         mario.style.width = "75px";
@@ -140,6 +144,9 @@ const loopGame = setInterval(() => {
 
         enemy.style.animation = "none";
         enemy.style.left = `${enemyPosition}px`;
+
+        firstGrass.style.animation = "none";
+        secondGrass.style.animation = "none";
 
         //substituição do mario
         mario.src = "sources/img/mario-game-over.png";
@@ -185,6 +192,9 @@ const loopGame = setInterval(() => {
         enemy.style.animation = "none";
         enemy.style.left = `${enemyPosition}px`;
 
+        firstGrass.style.animation = "none";
+        secondGrass.style.animation = "none";
+        
         //substituição do mario
         mario.src = "sources/img/mario-game-over.png";
         mario.style.width = "75px";
